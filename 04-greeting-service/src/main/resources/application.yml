@@ -4,6 +4,12 @@ spring:
   cloud:
     config:
       enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
 greeting-service:
   greeting: "Olá"
   default-value: "Mundo"
