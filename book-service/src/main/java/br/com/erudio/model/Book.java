@@ -4,16 +4,41 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
+
+@Entity(name = "BOOK")
 public class Book implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "AUTHOR", nullable = false)
 	private String author;
+	
+	@Column(name = "LAUNCH_DATE", nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date launchDate;
+	
+	@Column(name = "PRICE", nullable = false)
 	private Double price;
+	
+	@Column(name = "TITLE", nullable = false)
 	private String title;
+	
+	@Transient
 	private String currency;
+	
+	@Transient
 	private String environment;
 	
 	public Book() {
