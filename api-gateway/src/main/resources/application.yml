@@ -10,3 +10,8 @@ spring:
   cloud:
     config:
       enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
